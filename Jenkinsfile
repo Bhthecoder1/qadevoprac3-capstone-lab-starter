@@ -14,6 +14,7 @@ pipeline {
                             terraform init
                             terrascan scan -i terraform -t gcp
                             terraform apply -auto-approve
+                            '''
                         }
                     }
                 }
@@ -25,4 +26,4 @@ pipeline {
             cleanWs()
         }
     }
-}
+    }
