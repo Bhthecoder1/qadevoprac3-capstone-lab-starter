@@ -9,10 +9,6 @@ pipeline {
                 script {
                     dir('terraform') {
                         withCredentials([file(credentialsId: 'gcp_credentials', variable:'GCP_CREDENTIALS')]) {
-                            // TODO: fill in the steps necessary to:
-                            // - initialise terraform
-                            // - scan the terraform files
-                            // - provision the defined resources
                             terraform init
                             terrascan scan -i terraform -t gcp
                             terraform apply -auto-approve
