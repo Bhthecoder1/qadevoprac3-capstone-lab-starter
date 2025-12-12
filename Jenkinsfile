@@ -13,6 +13,9 @@ pipeline {
                             // - initialise terraform
                             // - scan the terraform files
                             // - provision the defined resources
+                            terraform init
+                            terrascan scan -i terraform -t gcp
+                            terraform apply -auto-approve
                         }
                     }
                 }

@@ -16,6 +16,8 @@ resource "google_compute_instance" "k8s_node" {
     export NfsPublicIp=${var.nfs_ip}
     export K3sPublicIp=${var.k3s_ip}
     # TODO: interpolate script contents from root module
+    file("${path.root}/worker.sh")
+     file("${path.root}/controller.sh")
     EOF
 
     network_interface {
